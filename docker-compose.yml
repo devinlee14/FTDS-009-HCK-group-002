@@ -1,0 +1,82 @@
+---
+version: '3.7'
+
+x-common:
+  &common
+  image: apache/airflow:latest
+  user: "${AIRFLOW_UID}:0"
+  env_file: 
+    - .env
+
+x-depends-on:
+  &depends-on
+  depends_on:
+    postgres:
+      condition: service_healthy
+    airflow-init:
+      condition: service_completed_successfully
+
+services: 
+  postgres:
+    image: postgres:15
+    container_name: postgres_proj
+    ports:
+      - "5434:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+    env_file:
+      - .env
+
+  # airflow scheduler
+  scheduler:
+    <<: [*common, *depends-on]
+    # <<: *depends-on
+    container_name: airflow-scheduler_proj
+    command: scheduler
+    restart: on-failure
+    volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+    - ./functions:/opt/airflow/functions
+    ports:
+      - "8793:8793"
+    env_file:
+      - .env
+
+  # airflow webserver
+  webserver:
+    <<: [*common, *depends-on]
+    # <<: *common
+    # <<: *depends-on
+    container_name: airflow-webserver_proj
+    restart: always
+    command: webserver
+    volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+    - ./functions:/opt/airflow/functions
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 30s
+      retries: 5
+    env_file:
+      - .env
+  
+  # airflow-init
+  airflow-init:
+    <<: *common
+    container_name: airflow-init_proj
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        mkdir -p /sources/logs /sources/dags /sources/plugins
+        chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins}
+        exec /entrypoint airflow version
