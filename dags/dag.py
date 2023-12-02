@@ -11,8 +11,9 @@ default_args = {
     'owner': 'data_engineer',
     'start_date': dt.datetime(2023, 12, 1),
     'depends_on_past': False,
-    'retries': 0,
-    # 'retry_delay': dt.timedelta(minutes=1)
+    'retries': 1,
+    'retry_delay': dt.timedelta(minutes=3),
+    'catchup': False
 }
 
 with DAG('process_data',
