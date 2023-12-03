@@ -77,8 +77,7 @@ with DAG('process_data',
         dest_key='clean_data/data_clean.csv',
         dest_bucket='hck-009-group-2',
         replace=True, 
-        aws_conn_id='s3-conn',  # Make sure this connection is configured in Airflow
-)
-
+        aws_conn_id='s3-conn'
+    )
 
     create_dir >> [play_store, user_review] >> join_data >> clean_data >> upload_to_s3
