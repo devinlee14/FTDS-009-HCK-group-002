@@ -8,12 +8,12 @@
 
 
 ## Project Overview
-This project focuses on performing sentiment analysis on e-commerce product reviews. Utilizing Natural Language Processing (NLP), the goal is to analyse customer feedback to gain insights into customer satisfaction and product perception.
+This project focuses on performing sentiment analysis on Google Play Store app reviews. Utilizing Natural Language Processing (NLP), the goal is to analyse user feedback to gain insights into satisfaction and app perception.
 
 
 ## Background
 ### Problem Statement
-In the competitive landscape of mobile applications, user feedback in the form of app reviews is a goldmine of insights that can inform product development and marketing strategies. However, these reviews are often unstructured, making it challenging to efficiently extract, categorize, and analyze sentiments and opinions. There is a need for an automated system that can process this feedback to provide actionable insights, identify trends in user sentiment, and highlight areas for improvement. This project aims to address the lack of structured analysis of user-generated content in app reviews on the Google Play Store, which, if leveraged correctly, can significantly enhance user satisfaction and app performance in the market.
+In the competitive landscape of mobile applications, user feedback for app reviews is a goldmine of insights that can inform product development and marketing strategies. However, these reviews are often unstructured, making it challenging to efficiently extract, categorize, and analyze sentiments and opinions. There is a need for an automated system that can process this feedback to provide actionable insights, identify trends in user sentiment, and highlight areas for improvement. This project aims to address the lack of structured analysis of user-generated content in app reviews on the Google Play Store, which, if leveraged correctly, can significantly enhance user satisfaction and app performance in the market.
 
 ### Objectives
 - Develop an Automated Sentiment Analysis Model
