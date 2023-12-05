@@ -8,11 +8,12 @@ import re
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 import nltk
 
 
 # Create A Function for Text Preprocessing
-def text_preprocessing(text, word_stemmer, sw):
+def text_preprocessing(text, lemmatizer, sw):
   # Case folding
   text = text.lower()
 
@@ -37,15 +38,14 @@ def text_preprocessing(text, word_stemmer, sw):
 
   # Tokenization
   tokens = word_tokenize(text)
-
+  
   # Stopwords removal
   tokens = [word for word in tokens if word not in sw]
-
-  # Stemming
-  tokens = [word_stemmer.stem(word) for word in tokens]
-
+  
+  # Lemmatization
+  tokens = [lemmatizer.lemmatize(word) for word in tokens]
+  
   # Combining Tokens
   text = ' '.join(tokens)
-
+  
   return text
-
