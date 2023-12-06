@@ -92,7 +92,7 @@ def run():
     if st.button('Predict'):
         model = load_model('lstm')
         sentiment_pred = model.predict(data['text_processed'])
-        st.write(sentiment_pred)
+        # st.write(sentiment_pred)
         if sentiment_pred > 1.5:
             st.write('Positive Review')
         elif (sentiment_pred < 1.5) & (sentiment_pred >= 1.0):
