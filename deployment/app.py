@@ -5,7 +5,7 @@ import conclusion
 
 # Sidebar
 st.sidebar.header("Choose Here!")
-options=['Home Page', 'Exploratory Data Analysis', 'Test our Model!', 'Conclusion']
+options = ['Home Page', 'Exploratory Data Analysis', 'Test our Model!', 'Conclusion']
 page = st.sidebar.selectbox(label='Select Page:', options=options)
 
 # Home Page
