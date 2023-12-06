@@ -6,11 +6,6 @@ This programme was created to store the function used through out this project.
 
 import re
 from nltk.tokenize import word_tokenize
-from nltk.stem import PorterStemmer
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-import nltk
-
 
 # Create A Function for Text Preprocessing
 def text_preprocessing(text, lemmatizer, sw):
