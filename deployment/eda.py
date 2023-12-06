@@ -156,9 +156,6 @@ def run():
     st.image('images/Distribution_of_Text_Length_Character_by_Sentiment.png', caption='Figure 10')
     with st.expander('Explanation'):
         st.caption('''
-                EXPLANATION
-                ''')
-        st.caption('''
                 The distribution of text length for reviews shows that neutral sentiment texts are generally shorter, 
                 with a mean length of around 7 words and a median of 5 words. Positive sentiment texts are longer, 
                 with a mean of approximately 19 words and a median of 17 words, while negative sentiment texts have a mean 
