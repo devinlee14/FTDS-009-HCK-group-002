@@ -1,6 +1,6 @@
 """
-// function.py //
-This programme was created to store the function used through out this project.
+// text_preprocessed.py //
+This programme was created to store the function `text_preprocessing` that cleans the given text.
 """
 
 
