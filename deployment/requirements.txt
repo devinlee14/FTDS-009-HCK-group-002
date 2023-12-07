@@ -1,0 +1,3 @@
+nltk
+tensorflow==2.14.0
+pandas
