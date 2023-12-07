@@ -92,4 +92,4 @@ The result of our project is one part of a solution, the model created can still
         - Enhance App Safety: Quickly address apps with negative sentiments that might be related to safety or compliance issues, maintaining a safe environment for all users
         - Refine Automated Systems: Feed sentiment analysis data into automated content moderation systems to improve their accuracy and responsiveness
 
-Furthermore, all of our visualisations are also available on [Tableau](#Link-to-tableau).
+Furthermore, all of our visualisations are also available on [Tableau](https://public.tableau.com/app/profile/devin.lee1049/viz/Final_Project_Dashbord1/Dashboard1?publish=yes).
